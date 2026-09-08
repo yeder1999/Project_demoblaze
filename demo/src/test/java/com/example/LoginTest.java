@@ -42,9 +42,7 @@ public class LoginTest {
 
         // Attendre que le champ username soit interactif
         WebDriverWait wait = new WebDriverWait(
-            driver,
-            Duration.ofSeconds(10)
-        );
+            driver, Duration.ofSeconds(10));
 
         wait.until(
             ExpectedConditions.elementToBeClickable(
@@ -57,13 +55,13 @@ public class LoginTest {
               .sendKeys("Benamar");
 
         // Remplir le password
-        driver.findElement(By.id("loginpassword"))
-              .sendKeys("Benamar");
+        driver.findElement(By.id("loginpassword")).sendKeys("Benamar");
 
         // Cliquer sur Log in
         driver.findElement(
             By.xpath("//button[contains(text(),'Log in')]")
         ).click();
+        
 
         // Attendre que le message Welcome apparaisse
         wait.until(
@@ -73,11 +71,11 @@ public class LoginTest {
         );
 
         // Vérifier Welcome username
-        String welcomeMessage = driver.findElement(
-            By.id("nameofuser")
-        ).getText();
+        String welcomeMessage = driver.findElement(By.id("nameofuser")).getText();
 
         assertEquals("Welcome Benamar", welcomeMessage);
+        //assertEquals("https://www.demoblaze.com/index.html",driver.getCurrentUrl());
+
     }
 }
 
